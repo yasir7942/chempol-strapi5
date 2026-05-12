@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_layout_product_oe_ms",
+  "info": {
+    "displayName": "ProductOEMs",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}

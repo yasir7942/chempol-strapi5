@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_seo_product_reviews",
+  "info": {
+    "displayName": "ProductReview",
+    "icon": "star",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "reviewBody": {
+      "type": "text"
+    },
+    "bestRating": {
+      "type": "decimal",
+      "max": 5,
+      "min": 2
+    },
+    "datePublished": {
+      "type": "date"
+    },
+    "author": {
+      "type": "string"
+    }
+  }
+}

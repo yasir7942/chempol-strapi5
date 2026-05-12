@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ssis",
+  "info": {
+    "singularName": "ssi",
+    "pluralName": "ssis",
+    "displayName": "Sys.SSI",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::type.type",
+      "inversedBy": "ssis"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product",
+      "inversedBy": "ssis"
+    }
+  }
+}

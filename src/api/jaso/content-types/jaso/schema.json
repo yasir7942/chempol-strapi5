@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "jasos",
+  "info": {
+    "singularName": "jaso",
+    "pluralName": "jasos",
+    "displayName": "Sys.JASO",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "sae_grade": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::sae-grade.sae-grade",
+      "inversedBy": "jasos"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product",
+      "inversedBy": "sys_jasos"
+    }
+  }
+}

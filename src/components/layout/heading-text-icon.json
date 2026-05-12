@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_layout_heading_text_icons",
+  "info": {
+    "displayName": "HeadingTextIcon",
+    "icon": "check"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "icon": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "aceas",
+  "info": {
+    "singularName": "acea",
+    "pluralName": "aceas",
+    "displayName": "Sys.ACEA",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "sae_grade": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::sae-grade.sae-grade",
+      "inversedBy": "aceas"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product",
+      "inversedBy": "sys_aceas"
+    }
+  }
+}

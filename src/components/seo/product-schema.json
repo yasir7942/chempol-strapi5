@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_seo_product_schemas",
+  "info": {
+    "displayName": "productSchema",
+    "icon": "doctor",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "sku": {
+      "type": "string"
+    },
+    "gtin8": {
+      "type": "string"
+    },
+    "mpn": {
+      "type": "string"
+    },
+    "reviews": {
+      "displayName": "ProductReview",
+      "type": "component",
+      "repeatable": true,
+      "component": "seo.product-review"
+    },
+    "offerCount": {
+      "type": "integer"
+    }
+  }
+}

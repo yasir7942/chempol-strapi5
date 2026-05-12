@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sae_grades",
+  "info": {
+    "singularName": "sae-grade",
+    "pluralName": "sae-grades",
+    "displayName": "Sys.SAE Grade",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "api": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::api.api",
+      "inversedBy": "sae_grades"
+    },
+    "aceas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::acea.acea",
+      "mappedBy": "sae_grade"
+    },
+    "ilsacs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ilsac.ilsac",
+      "mappedBy": "sae_grade"
+    },
+    "oems": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::oem.oem",
+      "mappedBy": "sae_grade"
+    },
+    "jasos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::jaso.jaso",
+      "mappedBy": "sae_grade"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "sae_grade"
+    }
+  }
+}

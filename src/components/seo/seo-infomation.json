@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_seo_seo_infomations",
+  "info": {
+    "displayName": "seoInfomation",
+    "icon": "search",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "seoTitle": {
+      "type": "string"
+    },
+    "seoDesctiption": {
+      "type": "text"
+    },
+    "schema": {
+      "displayName": "SchemaList",
+      "type": "component",
+      "repeatable": true,
+      "component": "seo.schema-list"
+    },
+    "canonicalLinks": {
+      "type": "string"
+    },
+    "preventIndexing": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

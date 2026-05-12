@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_seo_schema_lists",
+  "info": {
+    "displayName": "SchemaList",
+    "icon": "server"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "code": {
+      "type": "text"
+    }
+  }
+}

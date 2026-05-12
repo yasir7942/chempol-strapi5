@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_layout_heading_texts",
+  "info": {
+    "displayName": "HeadingText",
+    "icon": "filter",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    }
+  }
+}

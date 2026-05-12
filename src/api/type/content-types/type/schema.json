@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "types",
+  "info": {
+    "singularName": "type",
+    "pluralName": "types",
+    "displayName": "Sys.Type",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "apis": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::api.api",
+      "mappedBy": "type"
+    },
+    "product_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product-category.product-category",
+      "inversedBy": "types"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "type"
+    },
+    "oems": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::oem.oem",
+      "mappedBy": "type"
+    },
+    "ssis": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ssi.ssi",
+      "mappedBy": "type"
+    }
+  }
+}

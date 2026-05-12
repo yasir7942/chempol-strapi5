@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "oems",
+  "info": {
+    "singularName": "oem",
+    "pluralName": "oems",
+    "displayName": "Sys.OEM",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "sae_grade": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::sae-grade.sae-grade",
+      "inversedBy": "oems"
+    },
+    "type": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::type.type",
+      "inversedBy": "oems"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product",
+      "inversedBy": "sys_oems"
+    }
+  }
+}
