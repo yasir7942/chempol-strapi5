@@ -200,6 +200,17 @@
       "relation": "oneToMany",
       "target": "api::jaso.jaso",
       "mappedBy": "product"
+    },
+    "product_dosages": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-dosage.product-dosage",
+      "mappedBy": "product"
+    },
+    "Dosage": {
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.dosage-table"
     }
   }
 }

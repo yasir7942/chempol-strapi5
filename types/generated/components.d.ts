@@ -16,6 +16,18 @@ export interface LayoutContactList extends Struct.ComponentSchema {
   };
 }
 
+export interface LayoutDosageTable extends Struct.ComponentSchema {
+  collectionName: 'components_layout_dosage_tables';
+  info: {
+    displayName: 'DosageTable';
+  };
+  attributes: {
+    dosage: Schema.Attribute.String;
+    performance: Schema.Attribute.String;
+    Sae: Schema.Attribute.String;
+  };
+}
+
 export interface LayoutFaq extends Struct.ComponentSchema {
   collectionName: 'components_layout_faqs';
   info: {
@@ -195,6 +207,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'layout.contact-list': LayoutContactList;
+      'layout.dosage-table': LayoutDosageTable;
       'layout.faq': LayoutFaq;
       'layout.heading-text': LayoutHeadingText;
       'layout.heading-text-icon': LayoutHeadingTextIcon;

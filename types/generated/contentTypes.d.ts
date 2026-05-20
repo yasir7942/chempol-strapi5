@@ -1358,6 +1358,36 @@ export interface ApiProductCategoryProductCategory
   };
 }
 
+export interface ApiProductDosageProductDosage
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'product_dosages';
+  info: {
+    displayName: 'ProductDosage';
+    pluralName: 'product-dosages';
+    singularName: 'product-dosage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-dosage.product-dosage'
+    > &
+      Schema.Attribute.Private;
+    product: Schema.Attribute.Relation<'manyToOne', 'api::product.product'>;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProductGroupProductGroup
   extends Struct.CollectionTypeSchema {
   collectionName: 'product_groups';
@@ -1425,6 +1455,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    Dosage: Schema.Attribute.Component<'layout.dosage-table', true>;
     faq: Schema.Attribute.Component<'layout.faq', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1446,6 +1477,10 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     product_categories: Schema.Attribute.Relation<
       'manyToMany',
       'api::product-category.product-category'
+    >;
+    product_dosages: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-dosage.product-dosage'
     >;
     productImage: Schema.Attribute.Media<'images'> &
       Schema.Attribute.SetPluginOptions<{
@@ -2262,6 +2297,7 @@ declare module '@strapi/strapi' {
       'api::post.post': ApiPostPost;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::product-category.product-category': ApiProductCategoryProductCategory;
+      'api::product-dosage.product-dosage': ApiProductDosageProductDosage;
       'api::product-group.product-group': ApiProductGroupProductGroup;
       'api::product.product': ApiProductProduct;
       'api::redirection-url.redirection-url': ApiRedirectionUrlRedirectionUrl;

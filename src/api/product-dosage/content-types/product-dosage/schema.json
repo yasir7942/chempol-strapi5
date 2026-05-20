@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_dosages",
+  "info": {
+    "singularName": "product-dosage",
+    "pluralName": "product-dosages",
+    "displayName": "ProductDosage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product",
+      "inversedBy": "product_dosages"
+    }
+  }
+}

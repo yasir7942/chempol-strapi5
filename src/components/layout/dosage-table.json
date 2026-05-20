@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_layout_dosage_tables",
+  "info": {
+    "displayName": "DosageTable"
+  },
+  "options": {},
+  "attributes": {
+    "performance": {
+      "type": "string"
+    },
+    "Sae": {
+      "type": "string"
+    },
+    "dosage": {
+      "type": "string"
+    }
+  }
+}
