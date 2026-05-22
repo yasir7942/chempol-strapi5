@@ -1499,8 +1499,8 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::product.product'
     >;
-    sae_grade: Schema.Attribute.Relation<
-      'manyToOne',
+    sae_grades: Schema.Attribute.Relation<
+      'manyToMany',
       'api::sae-grade.sae-grade'
     >;
     seo: Schema.Attribute.Component<'seo.seo-infomation', false> &
@@ -1541,7 +1541,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    type: Schema.Attribute.Relation<'manyToOne', 'api::type.type'>;
+    types: Schema.Attribute.Relation<'manyToMany', 'api::type.type'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1620,7 +1620,7 @@ export interface ApiSaeGradeSaeGrade extends Struct.CollectionTypeSchema {
         };
       }>;
     oems: Schema.Attribute.Relation<'oneToMany', 'api::oem.oem'>;
-    products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
+    products: Schema.Attribute.Relation<'manyToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1732,7 +1732,7 @@ export interface ApiTypeType extends Struct.CollectionTypeSchema {
       'manyToOne',
       'api::product-category.product-category'
     >;
-    products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
+    products: Schema.Attribute.Relation<'manyToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
     ssis: Schema.Attribute.Relation<'oneToMany', 'api::ssi.ssi'>;
     title: Schema.Attribute.String;

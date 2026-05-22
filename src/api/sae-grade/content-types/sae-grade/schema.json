@@ -56,9 +56,9 @@
     },
     "products": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::product.product",
-      "mappedBy": "sae_grade"
+      "mappedBy": "sae_grades"
     }
   }
 }

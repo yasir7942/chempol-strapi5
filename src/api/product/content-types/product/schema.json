@@ -153,12 +153,6 @@
         }
       }
     },
-    "sae_grade": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::sae-grade.sae-grade",
-      "inversedBy": "products"
-    },
     "api": {
       "type": "relation",
       "relation": "manyToOne",
@@ -170,12 +164,6 @@
       "relation": "oneToMany",
       "target": "api::ssi.ssi",
       "mappedBy": "product"
-    },
-    "type": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::type.type",
-      "inversedBy": "products"
     },
     "sys_aceas": {
       "type": "relation",
@@ -211,6 +199,18 @@
       "type": "component",
       "repeatable": true,
       "component": "layout.dosage-table"
+    },
+    "sae_grades": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::sae-grade.sae-grade",
+      "inversedBy": "products"
+    },
+    "types": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::type.type",
+      "inversedBy": "products"
     }
   }
 }
