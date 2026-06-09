@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dosages",
+  "info": {
+    "singularName": "dosage",
+    "pluralName": "dosages",
+    "displayName": "Dosage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "dosage": {
+      "type": "string"
+    },
+    "sys_apis": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::api.api",
+      "inversedBy": "dosages"
+    },
+    "sys_sae_grades": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::sae-grade.sae-grade",
+      "inversedBy": "dosages"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "inversedBy": "dosages"
+    },
+    "sys_types": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::type.type",
+      "mappedBy": "dosages"
+    }
+  }
+}

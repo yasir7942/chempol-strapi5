@@ -43,6 +43,12 @@
       "relation": "oneToMany",
       "target": "api::ssi.ssi",
       "mappedBy": "type"
+    },
+    "dosages": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::dosage.dosage",
+      "inversedBy": "sys_types"
     }
   }
 }

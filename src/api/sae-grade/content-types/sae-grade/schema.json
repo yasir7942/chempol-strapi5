@@ -59,6 +59,12 @@
       "relation": "manyToMany",
       "target": "api::product.product",
       "mappedBy": "sae_grades"
+    },
+    "dosages": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::dosage.dosage",
+      "mappedBy": "sys_sae_grades"
     }
   }
 }

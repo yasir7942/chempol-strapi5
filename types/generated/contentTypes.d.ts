@@ -541,6 +541,7 @@ export interface ApiApiApi extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    dosages: Schema.Attribute.Relation<'manyToMany', 'api::dosage.dosage'>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::api.api'>;
     name: Schema.Attribute.String &
@@ -663,6 +664,41 @@ export interface ApiContactContact extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDosageDosage extends Struct.CollectionTypeSchema {
+  collectionName: 'dosages';
+  info: {
+    displayName: 'Dosage';
+    pluralName: 'dosages';
+    singularName: 'dosage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dosage: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::dosage.dosage'
+    > &
+      Schema.Attribute.Private;
+    products: Schema.Attribute.Relation<'manyToMany', 'api::product.product'>;
+    publishedAt: Schema.Attribute.DateTime;
+    sys_apis: Schema.Attribute.Relation<'manyToMany', 'api::api.api'>;
+    sys_sae_grades: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::sae-grade.sae-grade'
+    >;
+    sys_types: Schema.Attribute.Relation<'manyToMany', 'api::type.type'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1379,7 +1415,6 @@ export interface ApiProductDosageProductDosage
       'api::product-dosage.product-dosage'
     > &
       Schema.Attribute.Private;
-    product: Schema.Attribute.Relation<'manyToOne', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -1456,6 +1491,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
         };
       }>;
     Dosage: Schema.Attribute.Component<'layout.dosage-table', true>;
+    dosages: Schema.Attribute.Relation<'manyToMany', 'api::dosage.dosage'>;
     faq: Schema.Attribute.Component<'layout.faq', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1477,10 +1513,6 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     product_categories: Schema.Attribute.Relation<
       'manyToMany',
       'api::product-category.product-category'
-    >;
-    product_dosages: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::product-dosage.product-dosage'
     >;
     productImage: Schema.Attribute.Media<'images'> &
       Schema.Attribute.SetPluginOptions<{
@@ -1606,6 +1638,7 @@ export interface ApiSaeGradeSaeGrade extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    dosages: Schema.Attribute.Relation<'manyToMany', 'api::dosage.dosage'>;
     ilsacs: Schema.Attribute.Relation<'oneToMany', 'api::ilsac.ilsac'>;
     jasos: Schema.Attribute.Relation<'oneToMany', 'api::jaso.jaso'>;
     locale: Schema.Attribute.String;
@@ -1724,6 +1757,7 @@ export interface ApiTypeType extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    dosages: Schema.Attribute.Relation<'manyToMany', 'api::dosage.dosage'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::type.type'> &
       Schema.Attribute.Private;
@@ -2287,6 +2321,7 @@ declare module '@strapi/strapi' {
       'api::api.api': ApiApiApi;
       'api::blog-page.blog-page': ApiBlogPageBlogPage;
       'api::contact.contact': ApiContactContact;
+      'api::dosage.dosage': ApiDosageDosage;
       'api::faq-page.faq-page': ApiFaqPageFaqPage;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::ilsac.ilsac': ApiIlsacIlsac;
